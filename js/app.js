@@ -1,15 +1,26 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
-var alphabet, wordBank, guessInput, guess, guessButton, lettersGuessed, lettersMatched, output, man, letters, lives, currentWord, numLettersMatched, gameStrings;
+var alphabet;
+var wordBank;
+var guessInput;
+var guess;
+var lettersGuessed;
+var guessButton;
+var gameStrings;
+var lettersMatched;
+var output;
+var man;
+var letters;
+var lives;
+var currentWord;
+var numLettersMatched;
 
 
 ctx.beginPath();
 ctx.rect(0, 0, 1024, 400);
 ctx.fillStyle = "white";
 ctx.fill();
-
-
 
 
 
