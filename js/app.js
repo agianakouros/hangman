@@ -43,7 +43,7 @@ function start() {
       };
 
       function drawLives() {
-        ctx.font = "25px Lato";
+        ctx.font = "20px Lato";
         ctx.fillStyle = "#212427";
         ctx.fillText(`You have ${lives} lives left`, 8, 23);
       }
