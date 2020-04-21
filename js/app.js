@@ -12,7 +12,7 @@ var correct;
 var output;
 var man;
 var letters;
-var lives;
+var lives = 10;
 var word;
 var numCorrect;
 
@@ -26,7 +26,7 @@ ctx.fill();
 function start() {
         wordBank = ["cat", "dog", "cow", "run", "bat", "log", "wow", "fun", "rat", "bog", "how", "gun", "sat", "cap", "fog", "bun"];
         alphabet = "abcdefghijklmnopqrstuvwxyz";
-        lives = 6;
+        lives = 10;
 
         gameStrings = {
             win: 'You win!',
@@ -34,9 +34,19 @@ function start() {
             repeat: ' already guessed, please try again...',
             invalid: 'Please enter a letter from A-Z'
         }
+
+        attempt = correct = '';
+        numCorrect = 0;
+
+        word = wordBank[Math.floor(Math.random() * wordBank.length)];
+
       };
 
-      attempt = correct = '';
-              numCorrect = 0;
+      function drawLives() {
+        ctx.font = "25px Lato";
+        ctx.fillStyle = "#212427";
+        ctx.fillText(`You have ${lives} lives left`, 8, 23);
+      }
 
-      word = wordBank[Math.floor(Math.random() * wordBank.length)];
+
+drawLives()
