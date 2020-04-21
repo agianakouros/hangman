@@ -1,10 +1,10 @@
 canvas {
-  border: white 3px solid;
+  border: black 5px solid;
 
 }
 
 body {
-  background-color: white;
+  background-color: #212427;
 }
 
 div{
@@ -18,4 +18,9 @@ canvas{
  right: 0;
  left: 0;
  margin: auto;
+}
+
+.header {
+  text-align: center;
+  color: white;
 }

@@ -5,16 +5,16 @@ var alphabet;
 var wordBank;
 var guessInput;
 var guess;
-var lettersGuessed;
+var attempt;
 var guessButton;
 var gameStrings;
-var lettersMatched;
+var correct;
 var output;
 var man;
 var letters;
 var lives;
-var currentWord;
-var numLettersMatched;
+var word;
+var numCorrect;
 
 
 ctx.beginPath();
@@ -23,9 +23,8 @@ ctx.fillStyle = "white";
 ctx.fill();
 
 
-
 function start() {
-        wordBank = ["cat", "dog", "cow", "run", "bat", "log", "wow", "fun", "rat", "bog", "how", "gun" "sat", "cap", "fog", "bun"];
+        wordBank = ["cat", "dog", "cow", "run", "bat", "log", "wow", "fun", "rat", "bog", "how", "gun", "sat", "cap", "fog", "bun"];
         alphabet = "abcdefghijklmnopqrstuvwxyz";
         lives = 6;
 
@@ -34,4 +33,10 @@ function start() {
             lose: 'Game over!',
             repeat: ' already guessed, please try again...',
             invalid: 'Please enter a letter from A-Z'
-        };
+        }
+      };
+
+      attempt = correct = '';
+              numCorrect = 0;
+
+      word = wordBank[Math.floor(Math.random() * wordBank.length)];
