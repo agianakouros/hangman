@@ -23,6 +23,7 @@ ctx.fillStyle = "white";
 ctx.fill();
 
 
+
 function start() {
         wordBank = ["cat", "dog", "cow", "run", "bat", "log", "wow", "fun", "rat", "bog", "how", "gun", "sat", "cap", "fog", "bun"];
         alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -47,6 +48,5 @@ function start() {
         ctx.fillStyle = "#212427";
         ctx.fillText(`You have ${lives} lives left`, 8, 23);
       }
-
 
 drawLives()
