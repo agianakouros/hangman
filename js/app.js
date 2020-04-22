@@ -16,6 +16,33 @@ var lives = 10;
 var word;
 var numCorrect;
 
+document.getElementById("a").onclick = a;
+document.getElementById("b").onclick = b;
+document.getElementById("c").onclick = c;
+document.getElementById("d").onclick = d;
+document.getElementById("e").onclick = e;
+document.getElementById("f").onclick = f;
+document.getElementById("g").onclick = g;
+document.getElementById("h").onclick = h;
+document.getElementById("i").onclick = i;
+document.getElementById("j").onclick = j;
+document.getElementById("k").onclick = k;
+document.getElementById("l").onclick = l;
+document.getElementById("m").onclick = m;
+document.getElementById("n").onclick = n;
+document.getElementById("o").onclick = o;
+document.getElementById("p").onclick = p;
+document.getElementById("q").onclick = q;
+document.getElementById("r").onclick = r;
+document.getElementById("s").onclick = s;
+document.getElementById("t").onclick = t;
+document.getElementById("u").onclick = u;
+document.getElementById("v").onclick = v;
+document.getElementById("w").onclick = w;
+document.getElementById("x").onclick = x;
+document.getElementById("y").onclick = y;
+document.getElementById("z").onclick = z;
+
 
 ctx.beginPath();
 ctx.rect(0, 0, 1024, 400);
