@@ -92,7 +92,7 @@ function start() {
 
 
        letters = document.getElementById("letters");
-       letters.innerHTML = '<li class="current-word">Current word:</li>';
+       letters.innerHTML = '<li class="current-word"></li>';
 
        var letter, i;
        for (i = 0; i < word.length; i++) {

@@ -9,7 +9,7 @@ div .canvas {
 }
 
 body {
-  background-color: #1E90FF;
+  background-color: dodgerblue;
 }
 
 div{
@@ -97,5 +97,12 @@ div .padding {
 }
 
 #restart {
-  width: 7%;
+  width: 7.5%;
+}
+
+::selection {
+  background: yellow;
+}
+::-moz-selection {
+  background: yellow;
 }
