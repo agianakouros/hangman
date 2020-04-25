@@ -1,5 +1,27 @@
 var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
+var ctx = canvas.getContext('2d');
+
+function setupCanvas(canvas) {
+  // Get the device pixel ratio, falling back to 1.
+  var dpr = window.devicePixelRatio || 1;
+  // Get the size of the canvas in CSS pixels.
+  var rect = canvas.getBoundingClientRect();
+  // Give the canvas pixel dimensions of their CSS
+  // size * the device pixel ratio.
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  ctx = canvas.getContext('2d');
+  // Scale all drawing operations by the dpr, so you
+  // don't have to worry about the difference.
+  ctx.scale(dpr, dpr);
+  return ctx;
+}
+
+ctx.beginPath();
+ctx.rect(0, 0, 1024, 400);
+ctx.fillStyle = "white";
+ctx.fill();
+
 
 var alphabet;
 var wordBank;
@@ -44,11 +66,6 @@ document.getElementById("y").onclick = y;
 document.getElementById("z").onclick = z;
 
 
-ctx.beginPath();
-ctx.rect(0, 0, 1024, 400);
-ctx.fillStyle = "white";
-ctx.fill();
-
 
 
 function start() {
@@ -68,12 +85,42 @@ function start() {
 
         word = wordBank[Math.floor(Math.random() * wordBank.length)];
 
+        output = document.getElementById("output");
+        guessInput = document.getElementById("letter");
+
+        output.innerHTML = '';
+
+
+       letters = document.getElementById("letters");
+       letters.innerHTML = '<li class="current-word">Current word:</li>';
+
+       var letter, i;
+       for (i = 0; i < word.length; i++) {
+           letter = '<li class="letter letter' + word.charAt(i).toUpperCase() + '">' + word.charAt(i).toUpperCase() + '</li>';
+           letters.insertAdjacentHTML('beforeend', letter);
+       }
       };
+
+function gameOver(win) {
+        if (win) {
+            output.innerHTML = messages.win;
+            output.classList.add('win');
+         } else {
+            output.innerHTML = messages.lose;
+            output.classList.add('error');
+         }
+            guessInput.style.display = guessButton.style.display = 'none';
+            guessInput.value = '';
+         }
+
+         window.onload = start();
+
+
 
       function drawLives() {
         ctx.font = "15px Lato";
         ctx.fillStyle = "#212427";
-        ctx.fillText(`You have ${lives} lives left`, 8, 15);
+        ctx.fillText(`You have ${lives} lives left`, 6, 17);
       }
 
 drawLives()
