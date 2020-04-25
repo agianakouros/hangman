@@ -1,6 +1,11 @@
 canvas {
   border: black 5px solid;
   width: 40%;
+  height: 300px;
+}
+
+div .canvas {
+  position: relative;
 }
 
 body {
