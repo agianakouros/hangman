@@ -1,3 +1,16 @@
+
+h1 {
+  margin: 0 auto;
+  font-family: "Major Mono Display", monospace;
+  font-size: 70px;
+  margin: 2%;
+  color: white;
+  text-shadow: -3px 3px 3px 	gold;
+  padding-top: 0px;
+  text-align: center;
+}
+
+
 canvas {
   border: black 5px solid;
   width: 425px;
