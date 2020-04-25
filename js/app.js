@@ -115,6 +115,7 @@ function gameOver(win) {
 
          window.onload = start();
 
+         document.getElementById("restart").onclick = start;
 
 
       function drawLives() {
