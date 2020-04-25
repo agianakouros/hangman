@@ -69,7 +69,7 @@ document.getElementById("z").onclick = z;
 
 
 function start() {
-        wordBank = ["cat", "dog", "cow", "run", "bat", "log", "wow", "fun", "rat", "bog", "how", "gun", "sat", "cap", "fog", "bun"];
+        wordBank = ["cat", "cow", "run", "bat", "wow", "Code", "computer", "math", "phone", "letters", "morning", "special"];
         alphabet = "abcdefghijklmnopqrstuvwxyz";
         lives = 10;
 

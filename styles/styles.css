@@ -80,3 +80,18 @@ div{
 div .padding {
   padding-top: 25px;
 }
+
+.letter {
+    display: inline-block;
+    list-style: none;
+    width: 40px;
+    margin: 0 5px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    color: #1E90FF;
+    font-size: 25px;
+}
+
+#letters {
+  font-size: 30px;
+}
