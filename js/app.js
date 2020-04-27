@@ -17,11 +17,22 @@ var ctx = canvas.getContext('2d');
 //   return ctx;
 // }
 
-ctx.beginPath();
-ctx.rect(0, 0, 1024, 400);
-ctx.fillStyle = "white";
-ctx.fill();
- 
+// ctx.beginPath();
+// ctx.rect(0, 0, 1024, 400);
+// ctx.fillStyle = "white";
+// ctx.fill();
+// ctx.moveTo(20, 140);
+// ctx.lineTo(130, 140);
+// ctx.stroke();
+// ctx.moveTo(60, 140);
+// ctx.lineTo(60, 50);
+// ctx.stroke();
+// ctx.moveTo(60, 50);
+// ctx.lineTo(95, 50);
+// ctx.stroke();
+// ctx.moveTo(95, 50);
+// ctx.lineTo(95, 65);
+// ctx.stroke();
 
 var alphabet;
 var wordBank;
