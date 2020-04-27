@@ -1,20 +1,18 @@
-
 h1 {
   margin: 0 auto;
   font-family: "Major Mono Display", monospace;
   font-size: 70px;
   margin: 2%;
   color: white;
-  text-shadow: -3px 3px 3px 	gold;
+  text-shadow: -3px 3px 3px gold;
   padding-top: 0px;
   text-align: center;
 }
 
-
 canvas {
   border: black 5px solid;
-  width: 425px;
-  height: 200px;
+  width: 800px;
+  height: 400px;
 }
 
 div .canvas {
@@ -25,12 +23,15 @@ body {
   background-color: dodgerblue;
 }
 
-div{
- width: 100%;
- height: 100%;
- position: relative;
+div {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
+.padding {
+  padding-top: 25px;
+}
 
 .header {
   text-align: center;
@@ -38,71 +39,75 @@ div{
 }
 
 .unselectable {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .btn3d {
-    position: relative;
-    top: -6px;
-    border: 0;
-    transition: all 40ms linear;
-    margin-top: .5%;
-    margin-bottom: .5%;
-    margin-left: .2%;
-    margin-right: .2%;
-    width: 3.5%;
-    height: 40px;
-    font-size: 15px;
-    border-radius: 8px;
+  position: relative;
+  top: -6px;
+  border: 0;
+  transition: all 40ms linear;
+  margin-top: .5%;
+  margin-bottom: .5%;
+  margin-left: .2%;
+  margin-right: .2%;
+  width: 3.5%;
+  height: 40px;
+  font-size: 15px;
+  border-radius: 8px;
 }
 
-.btn3d:hover{
+.btn3d:hover {
   cursor: pointer;
 }
 
 .btn3d:active:focus,
 .btn3d:focus:hover,
 .btn3d:focus {
-    -moz-outline-style: none;
-    outline: medium none;
+  -moz-outline-style: none;
+  outline: medium none;
 }
 
 .btn3d:active,
 .btn3d.active {
-    top: 2px;
+  top: 2px;
 }
 
 .btn3d.btn-default {
-    color: white;
-    box-shadow: 0 0 0 1px #404040 inset, 0 0 0 2px #404040 inset, 0 8px 0 0 #404040, 0 8px 8px 1px #404040;
-    background-color:	#1E90FF;
+  color: white;
+  box-shadow: 0 0 0 1px #404040 inset, 0 0 0 2px #404040 inset, 0 8px 0 0 #404040, 0 8px 8px 1px #404040;
+  background-color: #1E90FF;
 }
 
 .btn3d.btn-default:active,
 .btn3d.btn-default.active {
-    color: white;
-    box-shadow: 0 0 0 1px #404040 inset, 0 0 0 1px #404040 inset, 0 1px 3px 1px #404040;
-    background-color: 	gold;
-}
-
-div .padding {
-  padding-top: 25px;
+  color: white;
+  box-shadow: 0 0 0 1px #404040 inset, 0 0 0 1px #404040 inset, 0 1px 3px 1px #404040;
+  background-color: gold;
 }
 
 .letter {
-    display: inline-block;
-    list-style: none;
-    width: 40px;
-    margin: 0 5px;
-    border-bottom: 1.5px solid white;
-    text-align: center;
-    color: #1E90FF;
-    font-size: 25px;
+  display: inline-block;
+  list-style: none;
+  width: 40px;
+  margin: 0 5px;
+  border-bottom: 1.5px solid white;
+  text-align: center;
+  color: #1E90FF;
+  font-size: 25px;
+}
+
+::selection {
+  background: yellow;
+}
+
+::-moz-selection {
+  background: yellow;
 }
 
 #letters {
@@ -111,12 +116,5 @@ div .padding {
 
 #restart {
   width: 7.5%;
-  background-color:	grey;
-}
-
-::selection {
-  background: yellow;
-}
-::-moz-selection {
-  background: yellow;
+  background-color: grey;
 }

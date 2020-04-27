@@ -21,7 +21,7 @@ ctx.beginPath();
 ctx.rect(0, 0, 1024, 400);
 ctx.fillStyle = "white";
 ctx.fill();
-
+ 
 
 var alphabet;
 var wordBank;
@@ -37,6 +37,8 @@ var letters;
 var lives = 10;
 var word;
 var numCorrect;
+
+var array = [];
 
 document.getElementById("a").onclick = a;
 document.getElementById("b").onclick = b;
@@ -69,6 +71,8 @@ function start() {
         wordBank = ["cat", "cow", "run", "bat", "wow", "Code", "computer", "math", "phone", "letters", "morning", "special"];
         alphabet = "abcdefghijklmnopqrstuvwxyz";
         lives = 10;
+
+        array = [];
 
         gameStrings = {
             win: 'You win!',
@@ -123,20 +127,109 @@ function gameOver(win) {
 
 drawLives()
 
-function isExist(e) {
-    e = e.toUpperCase()
-    var x = wordLeft.indexOf(e)
-    if(x != -1) {
-        wordLeft.splice(x, 1)
-        typeWord(e)
-        return true
-    }
-    return false
+
+function a() {
+  array.push("a");
 }
 
+function b() {
+  array.push("b");
+}
 
-// function a() {
-//   guess = "a";
-// }
-//
-// document.getElementById("header").innerHTML = guess
+function c() {
+  array.push("c");
+}
+
+function d() {
+  array.push("d");
+}
+
+function e() {
+  array.push("e");
+}
+
+function f() {
+  array.push("f");
+}
+
+function g() {
+  array.push("g");
+}
+
+function h() {
+  array.push("h");
+}
+
+function i() {
+  array.push("i");
+}
+
+function j() {
+  array.push("j");
+}
+
+function k() {
+  array.push("k");
+}
+
+function l() {
+  array.push("l");
+}
+
+function m() {
+  array.push("m");
+}
+
+function n() {
+  array.push("n");
+}
+
+function o() {
+  array.push("o");
+}
+
+function p() {
+  array.push("p");
+}
+
+function q() {
+  array.push("q");
+}
+
+function r() {
+  array.push("r");
+}
+
+function s() {
+  array.push("s");
+}
+
+function t() {
+  array.push("t");
+}
+
+function u() {
+  array.push("u");
+}
+
+function v() {
+  array.push("v");
+}
+
+function w() {
+  array.push("w");
+}
+
+function x() {
+  array.push("x");
+}
+
+function y() {
+  array.push("y");
+}
+
+function z() {
+  array.push("z");
+}
+
+// document.getElementById("header").innerHTML = array
