@@ -111,6 +111,7 @@ div .padding {
 
 #restart {
   width: 7.5%;
+  background-color:	grey;
 }
 
 ::selection {

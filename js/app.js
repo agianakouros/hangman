@@ -1,21 +1,21 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext('2d');
 
-function setupCanvas(canvas) {
-  // Get the device pixel ratio, falling back to 1.
-  var dpr = window.devicePixelRatio || 1;
-  // Get the size of the canvas in CSS pixels.
-  var rect = canvas.getBoundingClientRect();
-  // Give the canvas pixel dimensions of their CSS
-  // size * the device pixel ratio.
-  canvas.width = rect.width * dpr;
-  canvas.height = rect.height * dpr;
-  ctx = canvas.getContext('2d');
-  // Scale all drawing operations by the dpr, so you
-  // don't have to worry about the difference.
-  ctx.scale(dpr, dpr);
-  return ctx;
-}
+// function setupCanvas(canvas) {
+//   // Get the device pixel ratio, falling back to 1.
+//   var dpr = window.devicePixelRatio || 1;
+//   // Get the size of the canvas in CSS pixels.
+//   var rect = canvas.getBoundingClientRect();
+//   // Give the canvas pixel dimensions of their CSS
+//   // size * the device pixel ratio.
+//   canvas.width = rect.width * dpr;
+//   canvas.height = rect.height * dpr;
+//   ctx = canvas.getContext('2d');
+//   // Scale all drawing operations by the dpr, so you
+//   // don't have to worry about the difference.
+//   ctx.scale(dpr, dpr);
+//   return ctx;
+// }
 
 ctx.beginPath();
 ctx.rect(0, 0, 1024, 400);
@@ -65,9 +65,6 @@ document.getElementById("x").onclick = x;
 document.getElementById("y").onclick = y;
 document.getElementById("z").onclick = z;
 
-
-
-
 function start() {
         wordBank = ["cat", "cow", "run", "bat", "wow", "Code", "computer", "math", "phone", "letters", "morning", "special"];
         alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -86,7 +83,7 @@ function start() {
         word = wordBank[Math.floor(Math.random() * wordBank.length)];
 
         output = document.getElementById("output");
-        guessInput = document.getElementById("letter");
+
 
         output.innerHTML = '';
 
@@ -125,3 +122,21 @@ function gameOver(win) {
       }
 
 drawLives()
+
+function isExist(e) {
+    e = e.toUpperCase()
+    var x = wordLeft.indexOf(e)
+    if(x != -1) {
+        wordLeft.splice(x, 1)
+        typeWord(e)
+        return true
+    }
+    return false
+}
+
+
+// function a() {
+//   guess = "a";
+// }
+//
+// document.getElementById("header").innerHTML = guess
