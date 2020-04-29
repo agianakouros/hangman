@@ -3,7 +3,6 @@ var ctx = canvas.getContext('2d');
 
 var alphabet;
 var wordBank;
-var guess;
 var attempt;
 var gameStrings;
 var correct;
@@ -13,7 +12,8 @@ var lives = 10;
 var word;
 var numCorrect;
 
-var array = [];
+var array [];
+
 
 document.getElementById("a").onclick = a;
 document.getElementById("b").onclick = b;
@@ -241,7 +241,7 @@ function z() {
 }
 
 output.innerHTML = '';
-guess = array[array.length - 1]
+var guess = array[array.length - 1]
 
 if (guess) {
             /* is guess a valid letter? if so carry on, else error */
@@ -283,11 +283,6 @@ if (guess) {
             /* not a valid letter, error */
             else {
                 output.classList.add('error');
-                output.innerHTML = gameStrings.validLetter;
+                console.log(gameStrings.validLetter);
             }
-        }
-        /* no letter entered, error */
-        else {
-            output.classList.add('error');
-            output.innerHTML = gameStrings.validLetter;
         }
