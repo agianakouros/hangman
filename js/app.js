@@ -3,14 +3,11 @@ var ctx = canvas.getContext('2d');
 
 var alphabet;
 var wordBank;
-var guessInput;
 var guess;
 var attempt;
-var guessButton;
 var gameStrings;
 var correct;
 var output;
-var man;
 var letters;
 var lives = 10;
 var word;
@@ -55,8 +52,7 @@ function start() {
         gameStrings = {
             win: 'You win!',
             lose: 'Game over!',
-            repeat: ' already guessed, please try again...',
-            invalid: 'Please enter a letter from A-Z'
+            validLetter: 'Invalid Letter'
         }
 
         attempt = correct = '';
@@ -117,10 +113,10 @@ function setUpCanvas() {
 
 function gameOver(win) {
         if (win) {
-            output.innerHTML = messages.win;
+            output.innerHTML = gameStrings.win;
             output.classList.add('win');
          } else {
-            output.innerHTML = messages.lose;
+            output.innerHTML = gameStrings.lose;
             output.classList.add('error');
          }
             guessInput.style.display = guessButton.style.display = 'none';
@@ -244,4 +240,54 @@ function z() {
   array.push("z");
 }
 
-// document.getElementById("header").innerHTML = array
+output.innerHTML = '';
+guess = array[array.length - 1]
+
+if (guess) {
+            /* is guess a valid letter? if so carry on, else error */
+            if (alphabet.indexOf(guess) > -1) {
+                /* has it been guessed (missed or matched) already? if so, abandon & add notice */
+                if ((correct && correct.indexOf(guess) > -1) || (attempt && attempt.indexOf(guess) > -1)) {
+                    output.innerHTML = '"' + guess.toUpperCase() + '"' + gameStrings.guessed;
+                    output.classList.add("warning");
+                }
+                /* does guess exist in current word? if so, add to letters already matched, if final letter added, game over with win message */
+                else if (word.indexOf(guess) > -1) {
+                    var lettersToShow;
+                    lettersToShow = document.querySelectorAll(".letter" + guess.toUpperCase());
+
+                    for (var i = 0; i < lettersToShow.length; i++) {
+                        lettersToShow[i].classList.add("correct");
+                    }
+
+                    /* check to see if letter appears multiple times */
+                    for (var j = 0; j < word.length; j++) {
+                        if (word.charAt(j) === guess) {
+                            numCorrect += 1;
+                        }
+                    }
+
+                    correct += guess;
+                    if (numCorrect === word.length) {
+                        gameOver(true);
+                    }
+                }
+                /* guess doesn't exist in current word and hasn't been guessed before, add to attempt, reduce lives & update user */
+                else {
+                    attempt += guess;
+                    lives--;
+                    drawLives()
+                    if (lives === 0) gameOver();
+                }
+            }
+            /* not a valid letter, error */
+            else {
+                output.classList.add('error');
+                output.innerHTML = gameStrings.validLetter;
+            }
+        }
+        /* no letter entered, error */
+        else {
+            output.classList.add('error');
+            output.innerHTML = gameStrings.validLetter;
+        }
