@@ -1,23 +1,6 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext('2d');
 
-ctx.beginPath();
-ctx.rect(0, 0, 1024, 400);
-ctx.fillStyle = "white";
-ctx.fill();
-ctx.moveTo(20, 140);
-ctx.lineTo(130, 140);
-ctx.stroke();
-ctx.moveTo(60, 140);
-ctx.lineTo(60, 50);
-ctx.stroke();
-ctx.moveTo(60, 50);
-ctx.lineTo(95, 50);
-ctx.stroke();
-ctx.moveTo(95, 50);
-ctx.lineTo(95, 65);
-ctx.stroke();
-
 var alphabet;
 var wordBank;
 var guessInput;
@@ -96,6 +79,41 @@ function start() {
            letters.insertAdjacentHTML('beforeend', letter);
        }
       };
+
+      setUpCanvas()
+
+function setUpCanvas() {
+
+  ctx.beginPath();
+  ctx.rect(0, 0, 1024, 400);
+  ctx.fillStyle = "white";
+  ctx.fill();
+  ctx.moveTo(100, 140);
+  ctx.lineTo(180, 140);
+  ctx.stroke();
+  ctx.moveTo(125, 140);
+  ctx.lineTo(125, 50);
+  ctx.stroke();
+  ctx.moveTo(125, 50);
+  ctx.lineTo(165, 50);
+  ctx.stroke();
+  ctx.moveTo(159, 50);
+  ctx.lineTo(159, 65);
+  ctx.lineWidth = 0.7;
+  ctx.stroke();
+  ctx.moveTo(125, 120);
+  ctx.lineTo(140, 140);
+  ctx.stroke();
+  ctx.moveTo(125, 120);
+  ctx.lineTo(110, 140);
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+  ctx.moveTo(125, 70);
+  ctx.lineTo(140, 50);
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+
+}
 
 function gameOver(win) {
         if (win) {
