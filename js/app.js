@@ -78,54 +78,9 @@ function start() {
   }
 };
 
+
 function guess() {
-  guess = array[array.length - 1]
-
-  if (guess) {
-    /* is guess a valid letter? if so carry on, else error */
-    if (alphabet.indexOf(guess) > -1) {
-      /* has it been guessed (missed or matched) already? if so, abandon & add notice */
-      if ((correct && correct.indexOf(guess) > -1) || (attempt && attempt.indexOf(guess) > -1)) {
-        output.innerHTML = '"' + guess.toUpperCase() + '"' + gameStrings.guessed;
-        output.classList.add("warning");
-      }
-      /* does guess exist in current word? if so, add to letters already matched, if final letter added, game over with win message */
-      else if (word.indexOf(guess) > -1) {
-        var lettersToShow;
-        lettersToShow = document.querySelectorAll(".letter" + guess.toUpperCase());
-
-        for (var i = 0; i < lettersToShow.length; i++) {
-          lettersToShow[i].classList.add("correct");
-        }
-
-        /* check to see if letter appears multiple times */
-        for (var j = 0; j < word.length; j++) {
-          if (word.charAt(j) === guess) {
-            numCorrect += 1;
-          }
-        }
-
-        correct += guess;
-        if (numCorrect === word.length) {
-          gameOver(true);
-        }
-      }
-      /* guess doesn't exist in current word and hasn't been guessed before, add to attempt, reduce lives & update user */
-      else {
-        attempt += guess;
-        lives--;
-        if (lives === 0) gameOver();
-        document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
-      }
-    }
-    /* not a valid letter, error */
-    else {
-      output.classList.add('error');
-      console.log(gameStrings.validLetter);
-    }
-  } else {
-    console.log("mistake")
-  }
+  console.log("hi")
 }
 
 setUpCanvas()
@@ -315,3 +270,53 @@ function z() {
 }
 
 output.innerHTML = '';
+
+function guess() {
+  guess = array[array.length - 1]
+
+  if (guess) {
+    /* is guess a valid letter? if so carry on, else error */
+    if (alphabet.indexOf(guess) > -1) {
+      /* has it been guessed (missed or matched) already? if so, abandon & add notice */
+      if ((correct && correct.indexOf(guess) > -1) || (attempt && attempt.indexOf(guess) > -1)) {
+        output.innerHTML = '"' + guess.toUpperCase() + '"' + gameStrings.guessed;
+        output.classList.add("warning");
+      }
+      /* does guess exist in current word? if so, add to letters already matched, if final letter added, game over with win message */
+      else if (word.indexOf(guess) > -1) {
+        var lettersToShow;
+        lettersToShow = document.querySelectorAll(".letter" + guess.toUpperCase());
+
+        for (var i = 0; i < lettersToShow.length; i++) {
+          lettersToShow[i].classList.add("correct");
+        }
+
+        /* check to see if letter appears multiple times */
+        for (var j = 0; j < word.length; j++) {
+          if (word.charAt(j) === guess) {
+            numCorrect += 1;
+          }
+        }
+
+        correct += guess;
+        if (numCorrect === word.length) {
+          gameOver(true);
+        }
+      }
+      /* guess doesn't exist in current word and hasn't been guessed before, add to attempt, reduce lives & update user */
+      else {
+        attempt += guess;
+        lives--;
+        if (lives === 0) gameOver();
+        document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+      }
+    }
+    /* not a valid letter, error */
+    else {
+      output.classList.add('error');
+      console.log(gameStrings.validLetter);
+    }
+  } else {
+    console.log("mistake")
+  }
+}
