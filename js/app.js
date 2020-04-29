@@ -1,38 +1,22 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext('2d');
 
-// function setupCanvas(canvas) {
-//   // Get the device pixel ratio, falling back to 1.
-//   var dpr = window.devicePixelRatio || 1;
-//   // Get the size of the canvas in CSS pixels.
-//   var rect = canvas.getBoundingClientRect();
-//   // Give the canvas pixel dimensions of their CSS
-//   // size * the device pixel ratio.
-//   canvas.width = rect.width * dpr;
-//   canvas.height = rect.height * dpr;
-//   ctx = canvas.getContext('2d');
-//   // Scale all drawing operations by the dpr, so you
-//   // don't have to worry about the difference.
-//   ctx.scale(dpr, dpr);
-//   return ctx;
-// }
-
 ctx.beginPath();
 ctx.rect(0, 0, 1024, 400);
 ctx.fillStyle = "white";
 ctx.fill();
-// ctx.moveTo(20, 140);
-// ctx.lineTo(130, 140);
-// ctx.stroke();
-// ctx.moveTo(60, 140);
-// ctx.lineTo(60, 50);
-// ctx.stroke();
-// ctx.moveTo(60, 50);
-// ctx.lineTo(95, 50);
-// ctx.stroke();
-// ctx.moveTo(95, 50);
-// ctx.lineTo(95, 65);
-// ctx.stroke();
+ctx.moveTo(20, 140);
+ctx.lineTo(130, 140);
+ctx.stroke();
+ctx.moveTo(60, 140);
+ctx.lineTo(60, 50);
+ctx.stroke();
+ctx.moveTo(60, 50);
+ctx.lineTo(95, 50);
+ctx.stroke();
+ctx.moveTo(95, 50);
+ctx.lineTo(95, 65);
+ctx.stroke();
 
 var alphabet;
 var wordBank;
@@ -131,13 +115,12 @@ function gameOver(win) {
 
 
       function drawLives() {
-        ctx.font = "15px Lato";
-        ctx.fillStyle = "#212427";
-        ctx.fillText(`You have ${lives} lives left`, 6, 17);
+        ctx.font = "10px Arial";
+        ctx.fillStyle = "black";
+        ctx.fillText(`You have ${lives} lives left`, 6, 13);
       }
 
 drawLives()
-
 
 function a() {
   array.push("a");

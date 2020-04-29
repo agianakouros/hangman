@@ -11,8 +11,8 @@ h1 {
 
 canvas {
   border: black 5px solid;
-  width: 800px;
-  height: 400px;
+  width: 80vh;
+  height: 20vw;
 }
 
 div .canvas {
