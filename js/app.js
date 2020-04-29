@@ -78,11 +78,6 @@ function start() {
   }
 };
 
-
-function guess() {
-  console.log("hi")
-}
-
 setUpCanvas()
 
 function setUpCanvas() {
@@ -137,143 +132,140 @@ document.getElementById("restart").onclick = start;
 document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
 
 
-
-
 function a() {
   array.push("a");
-  guess()
+  guess1()
 }
 
 function b() {
   array.push("b");
-  guess()
+  guess1()
 }
 
 function c() {
   array.push("c");
-  guess()
+  guess1()
 }
 
 function d() {
   array.push("d");
-  guess()
+  guess1()
 }
 
 function e() {
   array.push("e");
-  guess()
+  guess1()
 }
 
 function f() {
   array.push("f");
-  guess()
+  guess1()
 }
 
 function g() {
   array.push("g");
-  guess()
+  guess1()
 }
 
 function h() {
   array.push("h");
-  guess()
+  guess1()
 }
 
 function i() {
   array.push("i");
-  guess()
+  guess1()
 }
 
 function j() {
   array.push("j");
-  guess()
+  guess1()
 }
 
 function k() {
   array.push("k");
-  guess()
+  guess1()
 }
 
 function l() {
   array.push("l");
-  guess()
+  guess1()
 }
 
 function m() {
   array.push("m");
-  guess()
+  guess1()
 }
 
 function n() {
   array.push("n");
-  guess()
+  guess1()
 }
 
 function o() {
   array.push("o");
-  guess()
+  guess1()
 }
 
 function p() {
   array.push("p");
-  guess()
+  guess1()
 }
 
 function q() {
   array.push("q");
-  guess()
+  guess1()
 }
 
 function r() {
   array.push("r");
-  guess()
+  guess1()
 }
 
 function s() {
   array.push("s");
-  guess()
+  guess1()
 }
 
 function t() {
   array.push("t");
-  guess()
+  guess1()
 }
 
 function u() {
   array.push("u");
-  guess()
+  guess1()
 }
 
 function v() {
   array.push("v");
-  guess()
+  guess1()
 }
 
 function w() {
   array.push("w");
-  guess()
+  guess1()
 }
 
 function x() {
   array.push("x");
-  guess()
+  guess1()
 }
 
 function y() {
   array.push("y");
-  guess()
+  guess1()
 }
 
 function z() {
   array.push("z");
-  guess()
+  guess1()
 }
 
 output.innerHTML = '';
 
-function guess() {
+function guess1() {
   guess = array[array.length - 1]
-
   if (guess) {
     /* is guess a valid letter? if so carry on, else error */
     if (alphabet.indexOf(guess) > -1) {
@@ -311,7 +303,7 @@ function guess() {
         document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
       }
     }
-    /* not a valid letter, error */
+    // not a valid letter, error */
     else {
       output.classList.add('error');
       console.log(gameStrings.validLetter);
