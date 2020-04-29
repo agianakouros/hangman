@@ -12,7 +12,9 @@ var lives = 10;
 var word;
 var numCorrect;
 
-var array [];
+var guess;
+
+var array = [];
 
 
 document.getElementById("a").onclick = a;
@@ -138,110 +140,139 @@ drawLives()
 
 function a() {
   array.push("a");
+  guess()
 }
 
 function b() {
   array.push("b");
+  guess()
 }
 
 function c() {
   array.push("c");
+  guess()
 }
 
 function d() {
   array.push("d");
+  guess()
 }
 
 function e() {
   array.push("e");
+  guess()
 }
 
 function f() {
   array.push("f");
+  guess()
 }
 
 function g() {
   array.push("g");
+  guess()
 }
 
 function h() {
   array.push("h");
+  guess()
 }
 
 function i() {
   array.push("i");
+  guess()
 }
 
 function j() {
   array.push("j");
+  guess()
 }
 
 function k() {
   array.push("k");
+  guess()
 }
 
 function l() {
   array.push("l");
+  guess()
 }
 
 function m() {
   array.push("m");
+  guess()
 }
 
 function n() {
   array.push("n");
+  guess()
 }
 
 function o() {
   array.push("o");
+  guess()
 }
 
 function p() {
   array.push("p");
+  guess()
 }
 
 function q() {
   array.push("q");
+  guess()
 }
 
 function r() {
   array.push("r");
+  guess()
 }
 
 function s() {
   array.push("s");
+  guess()
 }
 
 function t() {
   array.push("t");
+  guess()
 }
 
 function u() {
   array.push("u");
+  guess()
 }
 
 function v() {
   array.push("v");
+  guess()
 }
 
 function w() {
   array.push("w");
+  guess()
 }
 
 function x() {
   array.push("x");
+  guess()
 }
 
 function y() {
   array.push("y");
+  guess()
 }
 
 function z() {
   array.push("z");
+  guess()
 }
 
 output.innerHTML = '';
-var guess = array[array.length - 1]
+
+function guess() {
+guess = array[array.length - 1]
+
 
 if (guess) {
             /* is guess a valid letter? if so carry on, else error */
@@ -285,4 +316,7 @@ if (guess) {
                 output.classList.add('error');
                 console.log(gameStrings.validLetter);
             }
+        } else {
+          console.log("mistake")
         }
+}
