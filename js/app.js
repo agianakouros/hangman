@@ -90,6 +90,33 @@ function start() {
   document.getElementById('y').disabled = false
   document.getElementById('z').disabled = false
 
+  document.getElementById('a').style.backgroundColor = "#1E90FF"
+  document.getElementById('b').style.backgroundColor = "#1E90FF"
+  document.getElementById('c').style.backgroundColor = "#1E90FF"
+  document.getElementById('d').style.backgroundColor = "#1E90FF"
+  document.getElementById('e').style.backgroundColor = "#1E90FF"
+  document.getElementById('f').style.backgroundColor = "#1E90FF"
+  document.getElementById('g').style.backgroundColor = "#1E90FF"
+  document.getElementById('h').style.backgroundColor = "#1E90FF"
+  document.getElementById('i').style.backgroundColor = "#1E90FF"
+  document.getElementById('j').style.backgroundColor = "#1E90FF"
+  document.getElementById('k').style.backgroundColor = "#1E90FF"
+  document.getElementById('l').style.backgroundColor = "#1E90FF"
+  document.getElementById('m').style.backgroundColor = "#1E90FF"
+  document.getElementById('n').style.backgroundColor = "#1E90FF"
+  document.getElementById('o').style.backgroundColor = "#1E90FF"
+  document.getElementById('p').style.backgroundColor = "g#1E90FF"
+  document.getElementById('q').style.backgroundColor = "#1E90FF"
+  document.getElementById('r').style.backgroundColor = "#1E90FF"
+  document.getElementById('s').style.backgroundColor = "#1E90FF"
+  document.getElementById('t').style.backgroundColor = "#1E90FF"
+  document.getElementById('u').style.backgroundColor = "#1E90FF"
+  document.getElementById('v').style.backgroundColor = "#1E90FF"
+  document.getElementById('w').style.backgroundColor = "#1E90FF"
+  document.getElementById('x').style.backgroundColor = "#1E90FF"
+  document.getElementById('y').style.backgroundColor = "#1E90FF"
+  document.getElementById('z').style.backgroundColor = "#1E90FF"
+
   attempt = correct = '';
   numCorrect = 0;
 
