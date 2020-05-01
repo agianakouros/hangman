@@ -49,7 +49,7 @@ document.getElementById("z").onclick = z;
 
 
 function start() {
-  wordBank = ["cat", "cow", "run", "bat", "wow", "Code", "computer", "math", "phone", "letters", "morning", "special"];
+  wordBank = ["cat", "cow", "run", "bat", "wow", "computer", "math", "phone", "letters", "morning", "special"];
   alphabet = "abcdefghijklmnopqrstuvwxyz";
   lives = 10;
 
@@ -105,7 +105,7 @@ function start() {
   document.getElementById('m').style.backgroundColor = "#1E90FF"
   document.getElementById('n').style.backgroundColor = "#1E90FF"
   document.getElementById('o').style.backgroundColor = "#1E90FF"
-  document.getElementById('p').style.backgroundColor = "g#1E90FF"
+  document.getElementById('p').style.backgroundColor = "#1E90FF"
   document.getElementById('q').style.backgroundColor = "#1E90FF"
   document.getElementById('r').style.backgroundColor = "#1E90FF"
   document.getElementById('s').style.backgroundColor = "#1E90FF"
