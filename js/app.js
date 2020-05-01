@@ -175,151 +175,151 @@ function a() {
 function b() {
   array.push("b");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('b').disabled = true
 }
 
 function c() {
   array.push("c");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('c').disabled = true
 }
 
 function d() {
   array.push("d");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('d').disabled = true
 }
 
 function e() {
   array.push("e");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('e').disabled = true
 }
 
 function f() {
   array.push("f");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('f').disabled = true
 }
 
 function g() {
   array.push("g");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('g').disabled = true
 }
 
 function h() {
   array.push("h");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('h').disabled = true
 }
 
 function i() {
   array.push("i");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('i').disabled = true
 }
 
 function j() {
   array.push("j");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('j').disabled = true
 }
 
 function k() {
   array.push("k");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('k').disabled = true
 }
 
 function l() {
   array.push("l");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('l').disabled = true
 }
 
 function m() {
   array.push("m");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('m').disabled = true
 }
 
 function n() {
   array.push("n");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('n').disabled = true
 }
 
 function o() {
   array.push("o");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('o').disabled = true
 }
 
 function p() {
   array.push("p");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('p').disabled = true
 }
 
 function q() {
   array.push("q");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('q').disabled = true
 }
 
 function r() {
   array.push("r");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('r').disabled = true
 }
 
 function s() {
   array.push("s");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('s').disabled = true
 }
 
 function t() {
   array.push("t");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('t').disabled = true
 }
 
 function u() {
   array.push("u");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('u').disabled = true
 }
 
 function v() {
   array.push("v");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('v').disabled = true
 }
 
 function w() {
   array.push("w");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('w').disabled = true
 }
 
 function x() {
   array.push("x");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('x').disabled = true
 }
 
 function y() {
   array.push("y");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('y').disabled = true
 }
 
 function z() {
   array.push("z");
   guess1()
-  document.getElementById('a').disabled = true
+  document.getElementById('z').disabled = true
 }
 
 output.innerHTML = '';
