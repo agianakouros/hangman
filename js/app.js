@@ -1,3 +1,7 @@
+/////////////////////// Window Onload Function //////////////////////////////////////////
+
+window.onload = start();
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////// Variable Declarations /////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -190,15 +194,6 @@ function setUpCanvas() {
   ctx.stroke();
 
   hangLine()
-  drawHead()
-  drawTorso()
-  drawLeftArm()
-  drawRightArm()
-  drawRightLeg()
-  drawLeftLeg()
-  drawLeftEye()
-  drawRightEye()
-  drawFrown()
 }
 
 function drawHead() {
@@ -287,8 +282,6 @@ function gameOver(win) {
   guessInput.value = '';
 }
 
-window.onload = start();
-
 document.getElementById('lives').innerHTML = "You have " + lives + " lives"
 
 function guess1() {
@@ -327,6 +320,43 @@ function guess1() {
         attempt += guess;
         if (lives >= 1) {
           lives--;
+
+          if (lives == 9) {
+            drawHead()
+          }
+
+          if (lives == 8) {
+            drawTorso()
+          }
+
+          if (lives == 7) {
+            drawLeftArm()
+          }
+
+          if (lives == 6) {
+            drawRightArm()
+          }
+
+          if (lives == 5) {
+            drawRightLeg()
+          }
+
+          if (lives == 4) {
+            drawLeftLeg()
+          }
+
+          if (lives == 3) {
+            drawRightEye()
+          }
+
+          if (lives == 2) {
+            drawLeftEye()
+          }
+
+          if (lives == 1) {
+            drawFrown()
+          }
+
           if (lives === 0) gameOver();
           document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
         }
@@ -348,184 +378,184 @@ function guess1() {
 
 function a() {
   array.push("a");
-  guess1()
   document.getElementById('a').style.backgroundColor = "gold"
   document.getElementById('a').disabled = true
+  guess1()
 }
 
 function b() {
   array.push("b");
-  guess1()
   document.getElementById('b').style.backgroundColor = "gold"
   document.getElementById('b').disabled = true
+  guess1()
 }
 
 function c() {
   array.push("c");
-  guess1()
   document.getElementById('c').style.backgroundColor = "gold"
   document.getElementById('c').disabled = true
+  guess1()
 }
 
 function d() {
   array.push("d");
-  guess1()
   document.getElementById('d').style.backgroundColor = "gold"
   document.getElementById('d').disabled = true
+  guess1()
 }
 
 function e() {
   array.push("e");
-  guess1()
   document.getElementById('e').style.backgroundColor = "gold"
   document.getElementById('e').disabled = true
+  guess1()
 }
 
 function f() {
   array.push("f");
-  guess1()
   document.getElementById('f').style.backgroundColor = "gold"
   document.getElementById('f').disabled = true
+  guess1()
 }
 
 function g() {
   array.push("g");
-  guess1()
   document.getElementById('g').style.backgroundColor = "gold"
   document.getElementById('g').disabled = true
+  guess1()
 }
 
 function h() {
   array.push("h");
-  guess1()
   document.getElementById('h').style.backgroundColor = "gold"
   document.getElementById('h').disabled = true
+  guess1()
 }
 
 function i() {
   array.push("i");
-  guess1()
   document.getElementById('i').style.backgroundColor = "gold"
   document.getElementById('i').disabled = true
+  guess1()
 }
 
 function j() {
   array.push("j");
-  guess1()
   document.getElementById('j').style.backgroundColor = "gold"
   document.getElementById('j').disabled = true
+  guess1()
 }
 
 function k() {
   array.push("k");
-  guess1()
   document.getElementById('k').style.backgroundColor = "gold"
   document.getElementById('k').disabled = true
+  guess1()
 }
 
 function l() {
   array.push("l");
-  guess1()
   document.getElementById('l').style.backgroundColor = "gold"
   document.getElementById('l').disabled = true
+  guess1()
 }
 
 function m() {
   array.push("m");
-  guess1()
   document.getElementById('m').style.backgroundColor = "gold"
   document.getElementById('m').disabled = true
+  guess1()
 }
 
 function n() {
   array.push("n");
-  guess1()
   document.getElementById('n').style.backgroundColor = "gold"
   document.getElementById('n').disabled = true
+  guess1()
 }
 
 function o() {
   array.push("o");
-  guess1()
   document.getElementById('o').style.backgroundColor = "gold"
   document.getElementById('o').disabled = true
+  guess1()
 }
 
 function p() {
   array.push("p");
-  guess1()
   document.getElementById('p').style.backgroundColor = "gold"
   document.getElementById('p').disabled = true
+  guess1()
 }
 
 function q() {
   array.push("q");
-  guess1()
   document.getElementById('q').style.backgroundColor = "gold"
   document.getElementById('q').disabled = true
+  guess1()
 }
 
 function r() {
   array.push("r");
-  guess1()
   document.getElementById('r').style.backgroundColor = "gold"
   document.getElementById('r').disabled = true
+  guess1()
 }
 
 function s() {
   array.push("s");
-  guess1()
   document.getElementById('s').style.backgroundColor = "gold"
   document.getElementById('s').disabled = true
+  guess1()
 }
 
 function t() {
   array.push("t");
-  guess1()
   document.getElementById('t').style.backgroundColor = "gold"
   document.getElementById('t').disabled = true
+  guess1()
 }
 
 function u() {
   array.push("u");
-  guess1()
   document.getElementById('u').style.backgroundColor = "gold"
   document.getElementById('u').disabled = true
+  guess1()
 }
 
 function v() {
   array.push("v");
-  guess1()
   document.getElementById('v').style.backgroundColor = "gold"
   document.getElementById('v').disabled = true
+  guess1()
 }
 
 function w() {
   array.push("w");
-  guess1()
   document.getElementById('w').style.backgroundColor = "gold"
   document.getElementById('w').disabled = true
+  guess1()
 }
 
 function x() {
   array.push("x");
-  guess1()
   document.getElementById('x').style.backgroundColor = "gold"
   document.getElementById('x').disabled = true
+  guess1()
 }
 
 function y() {
   array.push("y");
-  guess1()
   document.getElementById('y').style.backgroundColor = "gold"
   document.getElementById('y').disabled = true
+  guess1()
 }
 
 function z() {
   array.push("z");
-  guess1()
   document.getElementById('z').style.backgroundColor = "gold"
   document.getElementById('z').disabled = true
+  guess1()
 }
 
 output.innerHTML = '';
