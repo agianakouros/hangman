@@ -47,6 +47,7 @@ document.getElementById("x").onclick = x;
 document.getElementById("y").onclick = y;
 document.getElementById("z").onclick = z;
 
+
 function start() {
   wordBank = ["cat", "cow", "run", "bat", "wow", "Code", "computer", "math", "phone", "letters", "morning", "special"];
   alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -59,6 +60,35 @@ function start() {
     lose: 'Game over!',
     validLetter: 'Invalid Letter'
   }
+
+  document.getElementById('lives').innerHTML = "You have " + lives + " lives"
+
+  document.getElementById('a').disabled = false
+  document.getElementById('b').disabled = false
+  document.getElementById('c').disabled = false
+  document.getElementById('d').disabled = false
+  document.getElementById('e').disabled = false
+  document.getElementById('f').disabled = false
+  document.getElementById('g').disabled = false
+  document.getElementById('h').disabled = false
+  document.getElementById('i').disabled = false
+  document.getElementById('j').disabled = false
+  document.getElementById('k').disabled = false
+  document.getElementById('l').disabled = false
+  document.getElementById('m').disabled = false
+  document.getElementById('n').disabled = false
+  document.getElementById('o').disabled = false
+  document.getElementById('p').disabled = false
+  document.getElementById('q').disabled = false
+  document.getElementById('r').disabled = false
+  document.getElementById('s').disabled = false
+  document.getElementById('t').disabled = false
+  document.getElementById('u').disabled = false
+  document.getElementById('v').disabled = false
+  document.getElementById('w').disabled = false
+  document.getElementById('x').disabled = false
+  document.getElementById('y').disabled = false
+  document.getElementById('z').disabled = false
 
   attempt = correct = '';
   numCorrect = 0;
@@ -123,6 +153,7 @@ function gameOver(win) {
   } else {
     output.innerHTML = gameStrings.lose;
     output.classList.add('error');
+    document.getElementById('lives').innerHTML = "You're out of lives!"
   }
   guessInput.style.display = guessButton.style.display = 'none';
   guessInput.value = '';
@@ -132,137 +163,163 @@ window.onload = start();
 
 document.getElementById("restart").onclick = start;
 
-document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+document.getElementById('lives').innerHTML = "You have " + lives + " lives"
 
 
 function a() {
   array.push("a");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function b() {
   array.push("b");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function c() {
   array.push("c");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function d() {
   array.push("d");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function e() {
   array.push("e");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function f() {
   array.push("f");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function g() {
   array.push("g");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function h() {
   array.push("h");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function i() {
   array.push("i");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function j() {
   array.push("j");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function k() {
   array.push("k");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function l() {
   array.push("l");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function m() {
   array.push("m");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function n() {
   array.push("n");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function o() {
   array.push("o");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function p() {
   array.push("p");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function q() {
   array.push("q");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function r() {
   array.push("r");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function s() {
   array.push("s");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function t() {
   array.push("t");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function u() {
   array.push("u");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function v() {
   array.push("v");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function w() {
   array.push("w");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function x() {
   array.push("x");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function y() {
   array.push("y");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 function z() {
   array.push("z");
   guess1()
+  document.getElementById('a').disabled = true
 }
 
 output.innerHTML = '';
@@ -301,9 +358,11 @@ function guess1() {
       /* guess doesn't exist in current word and hasn't been guessed before, add to attempt, reduce lives & update user */
       else {
         attempt += guess;
-        lives--;
-        if (lives === 0) gameOver();
-        document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+        if (lives >= 1) {
+          lives--;
+          if (lives === 0) gameOver();
+          document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+        }
       }
     }
     // not a valid letter, error */
