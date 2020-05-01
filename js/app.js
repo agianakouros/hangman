@@ -1,8 +1,9 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////// Variable Declarations /////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext('2d');
-
-canvas.width = canvas.clientWidth;
-canvas.height = canvas.clientHeight;
 
 var alphabet;
 var wordBank;
@@ -19,6 +20,9 @@ var guess;
 
 var array = [];
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// Onclick Elements//////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 document.getElementById("a").onclick = a;
 document.getElementById("b").onclick = b;
@@ -47,6 +51,11 @@ document.getElementById("x").onclick = x;
 document.getElementById("y").onclick = y;
 document.getElementById("z").onclick = z;
 
+document.getElementById("restart").onclick = start;
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// Game Setup ///////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 function start() {
   wordBank = ["cat", "cow", "run", "bat", "wow", "computer", "math", "phone", "letters", "morning", "special"];
@@ -138,7 +147,21 @@ function start() {
   }
 };
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////// Canvas Functions /////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+canvas.width = canvas.clientWidth;
+canvas.height = canvas.clientHeight;
+
 setUpCanvas()
+
+function hangLine() {
+  ctx.moveTo(355, 75);
+  ctx.lineTo(355, 95);
+  ctx.lineWidth = .8;
+  ctx.stroke();
+}
 
 function setUpCanvas() {
 
@@ -146,32 +169,110 @@ function setUpCanvas() {
   ctx.rect(0, 0, 1024, 400);
   ctx.fillStyle = "white";
   ctx.fill();
-  ctx.moveTo(100, 140);
-  ctx.lineTo(180, 140);
+  ctx.moveTo(250, 250);
+  ctx.lineTo(425, 250);
   ctx.stroke();
-  ctx.moveTo(125, 140);
-  ctx.lineTo(125, 50);
+  ctx.moveTo(285, 250);
+  ctx.lineTo(285, 75);
   ctx.stroke();
-  ctx.moveTo(125, 50);
-  ctx.lineTo(165, 50);
+  ctx.moveTo(285, 75);
+  ctx.lineTo(370, 75);
   ctx.stroke();
-  ctx.moveTo(159, 50);
-  ctx.lineTo(159, 65);
-  ctx.lineWidth = 0.7;
+  ctx.moveTo(265, 250);
+  ctx.lineTo(285, 225);
   ctx.stroke();
-  ctx.moveTo(125, 120);
-  ctx.lineTo(140, 140);
+  ctx.moveTo(305, 250);
+  ctx.lineTo(285, 225);
   ctx.stroke();
-  ctx.moveTo(125, 120);
-  ctx.lineTo(110, 140);
-  ctx.lineWidth = 1.5;
-  ctx.stroke();
-  ctx.moveTo(125, 70);
-  ctx.lineTo(140, 50);
-  ctx.lineWidth = 1.5;
+  ctx.moveTo(285, 105);
+  ctx.lineTo(315, 75);
+  ctx.lineWidth = 2.2;
   ctx.stroke();
 
+  hangLine()
+  drawHead()
+  drawTorso()
+  drawLeftArm()
+  drawRightArm()
+  drawRightLeg()
+  drawLeftLeg()
+  drawLeftEye()
+  drawRightEye()
+  drawFrown()
 }
+
+function drawHead() {
+  ctx.beginPath();
+  ctx.arc(355, 110, 15, 0, 2 * Math.PI);
+  ctx.stroke();
+}
+
+function drawTorso() {
+  ctx.moveTo(355, 125);
+  ctx.lineTo(355, 160);
+  ctx.lineWidth = 2.2;
+  ctx.stroke();
+}
+
+function drawLeftArm() {
+  ctx.moveTo(355, 130);
+  ctx.lineTo(345, 155);
+  ctx.lineWidth = 2.2;
+  ctx.stroke();
+}
+
+function drawRightArm() {
+  ctx.moveTo(355, 130);
+  ctx.lineTo(365, 155);
+  ctx.lineWidth = 2.2;
+  ctx.stroke();
+}
+
+function drawLeftLeg() {
+  ctx.moveTo(355, 155);
+  ctx.lineTo(345, 190);
+  ctx.lineWidth = 2.2;
+  ctx.stroke();
+}
+
+function drawRightLeg() {
+  ctx.moveTo(355, 155);
+  ctx.lineTo(365, 190);
+  ctx.lineWidth = 2.2;
+  ctx.stroke();
+}
+
+function drawLeftEye() {
+  ctx.moveTo(360, 105);
+  ctx.lineTo(365, 110);
+  ctx.lineWidth = 2.2;
+  ctx.stroke();
+  ctx.moveTo(365, 105);
+  ctx.lineTo(360, 110);
+  ctx.lineWidth = 2.2;
+  ctx.stroke();
+}
+
+function drawRightEye() {
+  ctx.moveTo(346, 105);
+  ctx.lineTo(352, 110);
+  ctx.lineWidth = 2.2;
+  ctx.stroke();
+  ctx.moveTo(352, 105);
+  ctx.lineTo(346, 110);
+  ctx.lineWidth = 2.2;
+  ctx.stroke();
+}
+
+function drawFrown() {
+  // ctx.beginPath();
+  // ctx.arc(345, 110, 35, 0, Math.PI, false);
+  // ctx.closePath();
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////// Game Mechanic Functions //////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 function gameOver(win) {
   if (win) {
@@ -188,10 +289,62 @@ function gameOver(win) {
 
 window.onload = start();
 
-document.getElementById("restart").onclick = start;
-
 document.getElementById('lives').innerHTML = "You have " + lives + " lives"
 
+function guess1() {
+  guess = array[array.length - 1]
+  if (guess) {
+    /* is guess a valid letter? if so carry on, else error */
+    if (alphabet.indexOf(guess) > -1) {
+      /* has it been guessed (missed or matched) already? if so, abandon & add notice */
+      if ((correct && correct.indexOf(guess) > -1) || (attempt && attempt.indexOf(guess) > -1)) {
+        output.innerHTML = '"' + guess.toUpperCase() + '"' + gameStrings.guessed;
+        output.classList.add("warning");
+      }
+      /* does guess exist in current word? if so, add to letters already matched, if final letter added, game over with win message */
+      else if (word.indexOf(guess) > -1) {
+        var lettersToShow;
+        lettersToShow = document.querySelectorAll(".letter" + guess.toUpperCase());
+
+        for (var i = 0; i < lettersToShow.length; i++) {
+          lettersToShow[i].classList.add("correct");
+        }
+
+        /* check to see if letter appears multiple times */
+        for (var j = 0; j < word.length; j++) {
+          if (word.charAt(j) === guess) {
+            numCorrect += 1;
+          }
+        }
+
+        correct += guess;
+        if (numCorrect === word.length) {
+          gameOver(true);
+        }
+      }
+      /* guess doesn't exist in current word and hasn't been guessed before, add to attempt, reduce lives & update user */
+      else {
+        attempt += guess;
+        if (lives >= 1) {
+          lives--;
+          if (lives === 0) gameOver();
+          document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+        }
+      }
+    }
+    // not a valid letter, error */
+    else {
+      output.classList.add('error');
+      console.log(gameStrings.validLetter);
+    }
+  } else {
+    console.log("mistake")
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////// Keyboard Functions /////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 function a() {
   array.push("a");
@@ -376,54 +529,3 @@ function z() {
 }
 
 output.innerHTML = '';
-
-function guess1() {
-  guess = array[array.length - 1]
-  if (guess) {
-    /* is guess a valid letter? if so carry on, else error */
-    if (alphabet.indexOf(guess) > -1) {
-      /* has it been guessed (missed or matched) already? if so, abandon & add notice */
-      if ((correct && correct.indexOf(guess) > -1) || (attempt && attempt.indexOf(guess) > -1)) {
-        output.innerHTML = '"' + guess.toUpperCase() + '"' + gameStrings.guessed;
-        output.classList.add("warning");
-      }
-      /* does guess exist in current word? if so, add to letters already matched, if final letter added, game over with win message */
-      else if (word.indexOf(guess) > -1) {
-        var lettersToShow;
-        lettersToShow = document.querySelectorAll(".letter" + guess.toUpperCase());
-
-        for (var i = 0; i < lettersToShow.length; i++) {
-          lettersToShow[i].classList.add("correct");
-        }
-
-        /* check to see if letter appears multiple times */
-        for (var j = 0; j < word.length; j++) {
-          if (word.charAt(j) === guess) {
-            numCorrect += 1;
-          }
-        }
-
-        correct += guess;
-        if (numCorrect === word.length) {
-          gameOver(true);
-        }
-      }
-      /* guess doesn't exist in current word and hasn't been guessed before, add to attempt, reduce lives & update user */
-      else {
-        attempt += guess;
-        if (lives >= 1) {
-          lives--;
-          if (lives === 0) gameOver();
-          document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
-        }
-      }
-    }
-    // not a valid letter, error */
-    else {
-      output.classList.add('error');
-      console.log(gameStrings.validLetter);
-    }
-  } else {
-    console.log("mistake")
-  }
-}
