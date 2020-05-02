@@ -16,9 +16,9 @@ var gameStrings;
 var correct;
 var output;
 var letters;
+var lives = 10;
 var word;
 var numCorrect;
-var lives = 10;
 
 var guess;
 
@@ -64,12 +64,14 @@ document.getElementById("restart").onclick = start;
 function start() {
   wordBank = ["cat", "cow", "run", "bat", "wow", "computer", "math", "phone", "letters", "morning", "special"];
   alphabet = "abcdefghijklmnopqrstuvwxyz";
+  lives = 10;
 
   array = [];
 
   gameStrings = {
     win: 'You win!',
     lose: 'Game over!',
+    validLetter: 'Invalid Letter'
   }
 
   document.getElementById('lives').innerHTML = "You have " + lives + " lives"
@@ -149,9 +151,9 @@ function start() {
   }
 };
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////// Canvas Functions /////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 canvas.width = canvas.clientWidth;
 canvas.height = canvas.clientHeight;
@@ -360,7 +362,13 @@ function guess1() {
         }
       }
     }
-
+    // not a valid letter, error */
+    else {
+      output.classList.add('error');
+      console.log(gameStrings.validLetter);
+    }
+  } else {
+    console.log("mistake")
   }
 }
 
