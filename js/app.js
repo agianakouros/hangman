@@ -276,13 +276,67 @@ function gameOver(win) {
   if (win) {
     output.innerHTML = gameStrings.win;
     output.classList.add('win');
+
+    document.getElementById('a').disabled = true
+    document.getElementById('b').disabled = true
+    document.getElementById('c').disabled = true
+    document.getElementById('d').disabled = true
+    document.getElementById('e').disabled = true
+    document.getElementById('f').disabled = true
+    document.getElementById('g').disabled = true
+    document.getElementById('h').disabled = true
+    document.getElementById('i').disabled = true
+    document.getElementById('j').disabled = true
+    document.getElementById('k').disabled = true
+    document.getElementById('l').disabled = true
+    document.getElementById('m').disabled = true
+    document.getElementById('n').disabled = true
+    document.getElementById('o').disabled = true
+    document.getElementById('p').disabled = true
+    document.getElementById('q').disabled = true
+    document.getElementById('r').disabled = true
+    document.getElementById('s').disabled = true
+    document.getElementById('t').disabled = true
+    document.getElementById('u').disabled = true
+    document.getElementById('v').disabled = true
+    document.getElementById('w').disabled = true
+    document.getElementById('x').disabled = true
+    document.getElementById('y').disabled = true
+    document.getElementById('z').disabled = true
+
   } else {
     output.innerHTML = gameStrings.lose;
     output.classList.add('error');
     document.getElementById('lives').innerHTML = "You're out of lives!"
+
+    document.getElementById('a').disabled = true
+    document.getElementById('b').disabled = true
+    document.getElementById('c').disabled = true
+    document.getElementById('d').disabled = true
+    document.getElementById('e').disabled = true
+    document.getElementById('f').disabled = true
+    document.getElementById('g').disabled = true
+    document.getElementById('h').disabled = true
+    document.getElementById('i').disabled = true
+    document.getElementById('j').disabled = true
+    document.getElementById('k').disabled = true
+    document.getElementById('l').disabled = true
+    document.getElementById('m').disabled = true
+    document.getElementById('n').disabled = true
+    document.getElementById('o').disabled = true
+    document.getElementById('p').disabled = true
+    document.getElementById('q').disabled = true
+    document.getElementById('r').disabled = true
+    document.getElementById('s').disabled = true
+    document.getElementById('t').disabled = true
+    document.getElementById('u').disabled = true
+    document.getElementById('v').disabled = true
+    document.getElementById('w').disabled = true
+    document.getElementById('x').disabled = true
+    document.getElementById('y').disabled = true
+    document.getElementById('z').disabled = true
+
   }
-  guessInput.style.display = guessButton.style.display = 'none';
-  guessInput.value = '';
 }
 
 document.getElementById('lives').innerHTML = "You have " + lives + " lives"
