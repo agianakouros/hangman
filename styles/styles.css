@@ -47,11 +47,11 @@ div {
   user-select: none;
 }
 
-.btn3d {
+.button {
   position: relative;
   top: -6px;
   border: 0;
-  transition: all 40ms linear;
+  transition: all 50ms linear;
   margin-top: .5%;
   margin-bottom: .5%;
   margin-left: .2%;
@@ -62,30 +62,30 @@ div {
   border-radius: 8px;
 }
 
-.btn3d:hover {
+.button:hover {
   cursor: pointer;
 }
 
-.btn3d:active:focus,
-.btn3d:focus:hover,
-.btn3d:focus {
+.button:active:focus,
+.button:focus:hover,
+.button:focus {
   -moz-outline-style: none;
   outline: medium none;
 }
 
-.btn3d:active,
-.btn3d.active {
+.button:active,
+.button.active {
   top: 2px;
 }
 
-.btn3d.btn-default {
+.button.btn-default {
   color: white;
   box-shadow: 0 0 0 1px #404040 inset, 0 0 0 2px #404040 inset, 0 8px 0 0 #404040, 0 8px 8px 1px #404040;
   background-color: #1E90FF;
 }
 
-.btn3d.btn-default:active,
-.btn3d.btn-default.active {
+.button.btn-default:active,
+.button.btn-default.active {
   color: white;
   box-shadow: 0 0 0 1px #404040 inset, 0 0 0 1px #404040 inset, 0 1px 3px 1px #404040;
   background-color: gold;
