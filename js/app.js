@@ -1,6 +1,5 @@
 /////////////////////// Window Onload Function //////////////////////////////////////////
 
-window.onload = start();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////// Variable Declarations /////////////////////////////////////////////////
@@ -8,6 +7,7 @@ window.onload = start();
 
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext('2d');
+window.onload = start();
 
 var alphabet;
 var wordBank;
@@ -149,26 +149,29 @@ function start() {
     letter = '<li class="letter letter' + word.charAt(i).toUpperCase() + '">' + word.charAt(i).toUpperCase() + '</li>';
     letters.insertAdjacentHTML('beforeend', letter);
   }
+  setUpCanvas()
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////// Canvas Functions /////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
 canvas.width = canvas.clientWidth;
 canvas.height = canvas.clientHeight;
 
-setUpCanvas()
-
 function hangLine() {
+  ctx.beginPath();
   ctx.moveTo(355, 75);
   ctx.lineTo(355, 95);
   ctx.lineWidth = .8;
   ctx.stroke();
+  ctx.closePath();
 }
 
 function setUpCanvas() {
-
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.beginPath();
   ctx.rect(0, 0, 1024, 400);
   ctx.fillStyle = "white";
@@ -192,7 +195,7 @@ function setUpCanvas() {
   ctx.lineTo(315, 75);
   ctx.lineWidth = 2.2;
   ctx.stroke();
-
+  ctx.closePath();
   hangLine()
 }
 
@@ -280,8 +283,8 @@ function gameOver(win) {
     document.getElementById('a').disabled = true
     document.getElementById('b').disabled = true
     document.getElementById('c').disabled = true
-    document.getElementById('d').disabled = true
     document.getElementById('e').disabled = true
+    document.getElementById('d').disabled = true
     document.getElementById('f').disabled = true
     document.getElementById('g').disabled = true
     document.getElementById('h').disabled = true
