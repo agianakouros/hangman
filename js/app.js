@@ -393,38 +393,47 @@ function guess1() {
 
           if (lives == 9) {
             drawHead()
+            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives == 8) {
             drawTorso()
+            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives == 7) {
             drawLeftArm()
+            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives == 6) {
             drawRightArm()
+            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives == 5) {
             drawRightLeg()
+            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives == 4) {
             drawLeftLeg()
+            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives == 3) {
             drawRightEye()
+            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives == 2) {
             drawLeftEye()
+            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives == 1) {
             drawSmile()
+            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives === 0) {
