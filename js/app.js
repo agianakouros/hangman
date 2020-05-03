@@ -24,6 +24,7 @@ var guess;
 
 var array = [];
 
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////// Onclick Elements //////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -71,7 +72,6 @@ function start() {
   gameStrings = {
     win: 'You win!',
     lose: 'Game over!',
-    validLetter: 'Invalid Letter'
   }
 
   document.getElementById('lives').innerHTML = "You have " + lives + " lives"
@@ -150,13 +150,15 @@ function start() {
     letters.insertAdjacentHTML('beforeend', letter);
   }
   setUpCanvas()
+  drawHead()
+  drawRightEye()
+  drawLeftEye()
+  drawFrown()
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////// Canvas Functions /////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 canvas.width = canvas.clientWidth;
 canvas.height = canvas.clientHeight;
@@ -240,37 +242,28 @@ function drawRightLeg() {
   ctx.stroke();
 }
 
-function drawLeftEye() {
-  ctx.moveTo(360, 105);
-  ctx.lineTo(365, 110);
-  ctx.lineWidth = 2.2;
+function drawRightEye() {
+  ctx.beginPath();
+  ctx.arc(360, 107.5, 3, 0, 2 * Math.PI);
   ctx.stroke();
-  ctx.moveTo(365, 105);
-  ctx.lineTo(360, 110);
-  ctx.lineWidth = 2.2;
-  ctx.stroke();
+  ctx.fillStyle = "black";
+  ctx.fill();
 }
 
-function drawRightEye() {
-  ctx.moveTo(346, 105);
-  ctx.lineTo(352, 110);
-  ctx.lineWidth = 2.2;
+function drawLeftEye() {
+  ctx.beginPath();
+  ctx.arc(349, 107.5, 3, 0, 2 * Math.PI);
   ctx.stroke();
-  ctx.moveTo(352, 105);
-  ctx.lineTo(346, 110);
-  ctx.lineWidth = 2.2;
-  ctx.stroke();
+  ctx.fillStyle = "black";
+  ctx.fill();
 }
 
 function drawFrown() {
-  // ctx.beginPath();
-  // ctx.arc(345, 110, 35, 0, Math.PI, false);
-  // ctx.closePath();
+  ctx.beginPath();
+  ctx.arc(355, 112, 8, 0, Math.PI);
+  ctx.stroke();
 }
 
-// function clearCanvas() {
-//   ctx.clearRect(0, 0, canvas.width, canvas.height)
-// };
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// Game Mechanic Functions //////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
