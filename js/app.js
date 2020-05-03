@@ -151,9 +151,14 @@ function start() {
   }
   setUpCanvas()
   drawHead()
-  drawRightEye()
+  drawTorso()
+  drawLeftArm()
+  drawRightArm()
   drawLeftEye()
-  drawFrown()
+  drawRightEye()
+  drawSmile()
+  drawRightLeg()
+  drawLeftLeg()
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -165,7 +170,7 @@ canvas.height = canvas.clientHeight;
 
 function hangLine() {
   ctx.beginPath();
-  ctx.moveTo(355, 75);
+  ctx.moveTo(355, 75)
   ctx.lineTo(355, 95);
   ctx.lineWidth = .8;
   ctx.stroke();
@@ -178,6 +183,7 @@ function setUpCanvas() {
   ctx.rect(0, 0, 1024, 400);
   ctx.fillStyle = "white";
   ctx.fill();
+  ctx.strokeStyle = "#663300";
   ctx.moveTo(250, 250);
   ctx.lineTo(425, 250);
   ctx.stroke();
@@ -202,12 +208,14 @@ function setUpCanvas() {
 }
 
 function drawHead() {
+  ctx.strokeStyle = "black";
   ctx.beginPath();
   ctx.arc(355, 110, 15, 0, 2 * Math.PI);
   ctx.stroke();
 }
 
 function drawTorso() {
+  ctx.strokeStyle = "red";
   ctx.moveTo(355, 125);
   ctx.lineTo(355, 160);
   ctx.lineWidth = 2.2;
@@ -215,6 +223,7 @@ function drawTorso() {
 }
 
 function drawLeftArm() {
+  ctx.strokeStyle = "red";
   ctx.moveTo(355, 130);
   ctx.lineTo(345, 155);
   ctx.lineWidth = 2.2;
@@ -222,6 +231,7 @@ function drawLeftArm() {
 }
 
 function drawRightArm() {
+  ctx.strokeStyle = "red";
   ctx.moveTo(355, 130);
   ctx.lineTo(365, 155);
   ctx.lineWidth = 2.2;
@@ -229,6 +239,7 @@ function drawRightArm() {
 }
 
 function drawLeftLeg() {
+  ctx.strokeStyle = "blue";
   ctx.moveTo(355, 155);
   ctx.lineTo(345, 190);
   ctx.lineWidth = 2.2;
@@ -236,6 +247,7 @@ function drawLeftLeg() {
 }
 
 function drawRightLeg() {
+  ctx.strokeStyle = "blue";
   ctx.moveTo(355, 155);
   ctx.lineTo(365, 190);
   ctx.lineWidth = 2.2;
@@ -244,7 +256,7 @@ function drawRightLeg() {
 
 function drawRightEye() {
   ctx.beginPath();
-  ctx.arc(360, 107.5, 3, 0, 2 * Math.PI);
+  ctx.arc(360, 107.5, 2.5, 0, 2 * Math.PI);
   ctx.stroke();
   ctx.fillStyle = "black";
   ctx.fill();
@@ -252,13 +264,14 @@ function drawRightEye() {
 
 function drawLeftEye() {
   ctx.beginPath();
-  ctx.arc(349, 107.5, 3, 0, 2 * Math.PI);
+  ctx.arc(349, 107.5, 2.5, 0, 2 * Math.PI);
   ctx.stroke();
   ctx.fillStyle = "black";
   ctx.fill();
 }
 
-function drawFrown() {
+function drawSmile() {
+  ctx.strokeStyle = "black";
   ctx.beginPath();
   ctx.arc(355, 112, 8, 0, Math.PI);
   ctx.stroke();
@@ -407,7 +420,7 @@ function guess1() {
           }
 
           if (lives == 1) {
-            drawFrown()
+            drawSmile()
           }
 
           if (lives === 0) gameOver();
