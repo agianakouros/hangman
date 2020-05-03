@@ -150,15 +150,6 @@ function start() {
     letters.insertAdjacentHTML('beforeend', letter);
   }
   setUpCanvas()
-  drawHead()
-  drawTorso()
-  drawLeftArm()
-  drawRightArm()
-  drawLeftEye()
-  drawRightEye()
-  drawSmile()
-  drawRightLeg()
-  drawLeftLeg()
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -215,7 +206,7 @@ function drawHead() {
 }
 
 function drawTorso() {
-  ctx.strokeStyle = "red";
+  ctx.strokeStyle = "black";
   ctx.moveTo(355, 125);
   ctx.lineTo(355, 160);
   ctx.lineWidth = 2.2;
@@ -223,7 +214,7 @@ function drawTorso() {
 }
 
 function drawLeftArm() {
-  ctx.strokeStyle = "red";
+  ctx.strokeStyle = "black";
   ctx.moveTo(355, 130);
   ctx.lineTo(345, 155);
   ctx.lineWidth = 2.2;
@@ -231,7 +222,7 @@ function drawLeftArm() {
 }
 
 function drawRightArm() {
-  ctx.strokeStyle = "red";
+  ctx.strokeStyle = "black";
   ctx.moveTo(355, 130);
   ctx.lineTo(365, 155);
   ctx.lineWidth = 2.2;
@@ -239,7 +230,7 @@ function drawRightArm() {
 }
 
 function drawLeftLeg() {
-  ctx.strokeStyle = "blue";
+  ctx.strokeStyle = "black";
   ctx.moveTo(355, 155);
   ctx.lineTo(345, 190);
   ctx.lineWidth = 2.2;
@@ -247,7 +238,7 @@ function drawLeftLeg() {
 }
 
 function drawRightLeg() {
-  ctx.strokeStyle = "blue";
+  ctx.strokeStyle = "black";
   ctx.moveTo(355, 155);
   ctx.lineTo(365, 190);
   ctx.lineWidth = 2.2;
@@ -256,7 +247,7 @@ function drawRightLeg() {
 
 function drawRightEye() {
   ctx.beginPath();
-  ctx.arc(360, 107.5, 2.5, 0, 2 * Math.PI);
+  ctx.arc(360, 107.5, 1.5, 0, 2 * Math.PI);
   ctx.stroke();
   ctx.fillStyle = "black";
   ctx.fill();
@@ -264,7 +255,7 @@ function drawRightEye() {
 
 function drawLeftEye() {
   ctx.beginPath();
-  ctx.arc(349, 107.5, 2.5, 0, 2 * Math.PI);
+  ctx.arc(349, 107.5, 1.5, 0, 2 * Math.PI);
   ctx.stroke();
   ctx.fillStyle = "black";
   ctx.fill();
@@ -274,6 +265,19 @@ function drawSmile() {
   ctx.strokeStyle = "black";
   ctx.beginPath();
   ctx.arc(355, 112, 8, 0, Math.PI);
+  ctx.moveTo(347, 113);
+  ctx.lineTo(363, 113);
+  ctx.stroke();
+}
+
+function redX() {
+  ctx.strokeStyle = "red";
+  ctx.beginPath();
+  ctx.moveTo(320, 90);
+  ctx.lineTo(390, 180);
+  ctx.moveTo(390, 90);
+  ctx.lineTo(320, 180);
+  ctx.lineWidth = 3
   ctx.stroke();
 }
 
@@ -423,8 +427,11 @@ function guess1() {
             drawSmile()
           }
 
-          if (lives === 0) gameOver();
-          document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+          if (lives === 0) {
+            redX();
+            gameOver();
+            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+          }
         }
       }
     }
