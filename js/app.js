@@ -74,8 +74,6 @@ function start() {
     lose: 'Game over!',
   }
 
-  setUpCanvas()
-
   document.getElementById('lives').innerHTML = "You have " + lives + " lives"
 
   document.getElementById('a').disabled = false
@@ -151,6 +149,7 @@ function start() {
     letter = '<li class="letter letter' + word.charAt(i).toUpperCase() + '">' + word.charAt(i).toUpperCase() + '</li>';
     letters.insertAdjacentHTML('beforeend', letter);
   }
+  setUpCanvas()
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -170,11 +169,12 @@ function hangLine() {
 }
 
 function setUpCanvas() {
-  ctx.fillStyle = "white";
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.beginPath();
   ctx.rect(0, 0, 1024, 400);
+  ctx.fillStyle = "white";
   ctx.fill();
   ctx.strokeStyle = "#663300";
-  ctx.stroke();
   ctx.moveTo(250, 250);
   ctx.lineTo(425, 250);
   ctx.stroke();
@@ -194,6 +194,7 @@ function setUpCanvas() {
   ctx.lineTo(315, 75);
   ctx.lineWidth = 2.2;
   ctx.stroke();
+  ctx.closePath();
   hangLine()
 }
 
@@ -392,47 +393,38 @@ function guess1() {
 
           if (lives == 9) {
             drawHead()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives == 8) {
             drawTorso()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives == 7) {
             drawLeftArm()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives == 6) {
             drawRightArm()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives == 5) {
             drawRightLeg()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives == 4) {
             drawLeftLeg()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives == 3) {
             drawRightEye()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives == 2) {
             drawLeftEye()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives == 1) {
             drawSmile()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
           }
 
           if (lives === 0) {
