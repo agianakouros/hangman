@@ -74,6 +74,8 @@ function start() {
     lose: 'Game over!',
   }
 
+  setUpCanvas()
+
   document.getElementById('lives').innerHTML = "You have " + lives + " lives"
 
   document.getElementById('a').disabled = false
@@ -149,7 +151,6 @@ function start() {
     letter = '<li class="letter letter' + word.charAt(i).toUpperCase() + '">' + word.charAt(i).toUpperCase() + '</li>';
     letters.insertAdjacentHTML('beforeend', letter);
   }
-  setUpCanvas()
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -169,12 +170,11 @@ function hangLine() {
 }
 
 function setUpCanvas() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.beginPath();
-  ctx.rect(0, 0, 1024, 400);
   ctx.fillStyle = "white";
+  ctx.rect(0, 0, 1024, 400);
   ctx.fill();
   ctx.strokeStyle = "#663300";
+  ctx.stroke();
   ctx.moveTo(250, 250);
   ctx.lineTo(425, 250);
   ctx.stroke();
@@ -194,7 +194,6 @@ function setUpCanvas() {
   ctx.lineTo(315, 75);
   ctx.lineWidth = 2.2;
   ctx.stroke();
-  ctx.closePath();
   hangLine()
 }
 
@@ -390,7 +389,6 @@ function guess1() {
         attempt += guess;
         if (lives >= 1) {
           lives--;
-          document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
 
           if (lives == 9) {
             drawHead()
