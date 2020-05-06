@@ -5,9 +5,10 @@
 /////////////////////////// Variable Declarations /////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext('2d');
-window.onload = start();
+// var canvas = document.getElementById("canvas");
+// var ctx = canvas.getContext('2d');
+let canvas, ctx;
+//window.onload = start();
 
 var alphabet;
 var wordBank;
@@ -63,7 +64,13 @@ document.getElementById("restart").onclick = start;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 function start() {
-  wordBank = ["cat", "cow", "run", "bat", "wow", "computer", "math", "phone", "letters", "morning", "special"];
+  canvas = document.getElementById("canvas");
+  ctx = canvas.getContext('2d');
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+
+  console.log("start")
+  wordBank = ["cat", "cow", "run", "bat", "wow", "computer", "math", "phone", "letters", "morning", "special", "wilson"];
   alphabet = "abcdefghijklmnopqrstuvwxyz";
   lives = 10;
 
@@ -156,8 +163,8 @@ function start() {
 ///////////////////////////////// Canvas Functions /////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-canvas.width = canvas.clientWidth;
-canvas.height = canvas.clientHeight;
+// canvas.width = canvas.clientWidth;
+// canvas.height = canvas.clientHeight;
 
 function hangLine() {
   ctx.beginPath();
@@ -194,6 +201,7 @@ function setUpCanvas() {
   ctx.lineTo(315, 75);
   ctx.lineWidth = 2.2;
   ctx.stroke();
+  console.log("hello")
   ctx.closePath();
   hangLine()
 }
@@ -356,103 +364,94 @@ document.getElementById('lives').innerHTML = "You have " + lives + " lives"
 
 function guess1() {
   guess = array[array.length - 1]
-  if (guess) {
-    /* is guess a valid letter? if so carry on, else error */
-    if (alphabet.indexOf(guess) > -1) {
-      /* has it been guessed (missed or matched) already? if so, abandon & add notice */
-      if ((correct && correct.indexOf(guess) > -1) || (attempt && attempt.indexOf(guess) > -1)) {
-        output.innerHTML = '"' + guess.toUpperCase() + '"' + gameStrings.guessed;
-        output.classList.add("warning");
+  if (alphabet.indexOf(guess) > -1) {
+    /* has it been guessed (missed or matched) already? if so, abandon & add notice */
+    if ((correct && correct.indexOf(guess) > -1) || (attempt && attempt.indexOf(guess) > -1)) {
+      output.innerHTML = '"' + guess.toUpperCase() + '"' + gameStrings.guessed;
+      output.classList.add("warning");
+    }
+    /* does guess exist in current word? if so, add to letters already matched, if final letter added, game over with win message */
+    else if (word.indexOf(guess) > -1) {
+      var lettersToShow;
+      lettersToShow = document.querySelectorAll(".letter" + guess.toUpperCase());
+
+      for (var i = 0; i < lettersToShow.length; i++) {
+        lettersToShow[i].classList.add("correct");
       }
-      /* does guess exist in current word? if so, add to letters already matched, if final letter added, game over with win message */
-      else if (word.indexOf(guess) > -1) {
-        var lettersToShow;
-        lettersToShow = document.querySelectorAll(".letter" + guess.toUpperCase());
 
-        for (var i = 0; i < lettersToShow.length; i++) {
-          lettersToShow[i].classList.add("correct");
-        }
-
-        /* check to see if letter appears multiple times */
-        for (var j = 0; j < word.length; j++) {
-          if (word.charAt(j) === guess) {
-            numCorrect += 1;
-          }
-        }
-
-        correct += guess;
-        if (numCorrect === word.length) {
-          gameOver(true);
+      /* check to see if letter appears multiple times */
+      for (var j = 0; j < word.length; j++) {
+        if (word.charAt(j) === guess) {
+          numCorrect += 1;
         }
       }
-      /* guess doesn't exist in current word and hasn't been guessed before, add to attempt, reduce lives & update user */
-      else {
-        attempt += guess;
-        if (lives >= 1) {
-          lives--;
-          document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
 
-          if (lives == 9) {
-            drawHead()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
-          }
-
-          if (lives == 8) {
-            drawTorso()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
-          }
-
-          if (lives == 7) {
-            drawLeftArm()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
-          }
-
-          if (lives == 6) {
-            drawRightArm()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
-          }
-
-          if (lives == 5) {
-            drawRightLeg()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
-          }
-
-          if (lives == 4) {
-            drawLeftLeg()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
-          }
-
-          if (lives == 3) {
-            drawRightEye()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
-          }
-
-          if (lives == 2) {
-            drawLeftEye()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
-          }
-
-          if (lives == 1) {
-            drawSmile()
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
-          }
-
-          if (lives === 0) {
-            redX();
-            gameOver();
-            document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
-          }
-        }
+      correct += guess;
+      if (numCorrect === word.length) {
+        gameOver(true);
       }
     }
-    // not a valid letter, error */
+    /* guess doesn't exist in current word and hasn't been guessed before, add to attempt, reduce lives & update user */
     else {
-      output.classList.add('error');
-      console.log(gameStrings.validLetter);
+      attempt += guess;
+      if (lives >= 1) {
+        lives--;
+        document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+
+        if (lives == 9) {
+          drawHead()
+          document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+        }
+
+        if (lives == 8) {
+          drawTorso()
+          document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+        }
+
+        if (lives == 7) {
+          drawLeftArm()
+          document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+        }
+
+        if (lives == 6) {
+          drawRightArm()
+          document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+        }
+
+        if (lives == 5) {
+          drawRightLeg()
+          document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+        }
+
+        if (lives == 4) {
+          drawLeftLeg()
+          document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+        }
+
+        if (lives == 3) {
+          drawRightEye()
+          document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+        }
+
+        if (lives == 2) {
+          drawLeftEye()
+          document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+        }
+
+        if (lives == 1) {
+          drawSmile()
+          document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+        }
+
+        if (lives === 0) {
+          redX();
+          gameOver();
+          document.getElementById('lives').innerHTML = "You have " + lives + " lives left"
+        }
+      }
     }
-  } else {
-    console.log("mistake")
   }
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -641,4 +640,4 @@ function z() {
   guess1()
 }
 
-output.innerHTML = '';
+// output.innerHTML = '';
